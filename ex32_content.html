@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <!-- ex32_content.html -->
+    <h1>Content</h1>
+
+    <input type="button" value="버튼1" id="btn1">
+    <input type="button" value="버튼2" id="btn2">
+    <hr>
+    <div id="div1">홍<i>길</i>동</div>
+
+    <script>
+
+        /* 
+            BOM or DOM > 태그 조작
+            1. 태그 검색(BOM, DOM)
+            2. 속성 조작(BOM, DOM)
+            3. 콘텐츠 조작(BOM(X), DOM(O))
+            4. 이벤트 조작(BOM, DOM)
+
+            Content
+            - 시작 태그와 끝 태그 사이의 내용물(PCDATA, Element) 조작
+            1. innerText
+
+            2. innerHTML
+
+            3. textContent
+
+            ---------------------------------------------------------
+            4. outerText
+            5. outerHTML
+
+        */
+        var div1;
+
+        document.getElementById('btn1').onclick = function() {
+            div1 = document.getElementById('div1');
+            //console.log(div1);
+            //<div id="div1">홍길동</div>
+
+            //읽기
+            // alert(div1.innerText);// 태그 인식 X
+            // alert(div1.innerHTML);// 태그 인식O
+            //alert(div1.textContent);
+
+            //쓰기
+            //div1.innerText = '아<i>무</i>개';
+            //div1.innerHTML = '아<i>무</i>개';
+            //div1.textContent = '아<i>무</i>개';
+
+            // div1.innerHTML += '<input type="text">'
+            // 동적으로 태그생성 가능 -> 문서의 구조 생성 가능
+
+            // for (var i=0; i<100; i++) {
+            //     div1,innerHTML += '<input type="text>';
+            // }
+
+            div1.innerHTML += '<img src="images/catty01.png">';
+        };
+
+        document.getElementById('btn2').onclick = function() {
+            div1.innerHTML = ''; //콘텐츠지우기
+        };
+
+    </script>
+
+</body>
+</html>

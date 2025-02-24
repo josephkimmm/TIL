@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        fieldset {
+            border: 1px solid black;
+            border-radius: 5px;
+            width: 200px;
+            margin-bottom: 15px;
+        }
+        fieldset input {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- ex29_timer.html -->
+    
+    <h1>타이머</h1>
+
+    <form name="form1">
+        <fieldset>
+            <legend>setTimeout</legend>
+            <input type="button" value="버튼1" name="btn1">
+            <input type="button" value="버튼2" name="btn2">
+            <input type="text" name="txt1">
+        </fieldset>
+        <fieldset>
+            <legend>setInterval</legend>
+            <input type="button" value="버튼3" name="btn3">
+            <input type="button" value="버튼4" name="btn4">
+            <input type="text" name="txt2">
+        </fieldset>
+        <fieldset>
+            <legend>타이머 통제하기</legend>
+            <input type="button" value="시작" name="btn5">
+            <input type="button" value="멈춤" name="btn6" disabled>
+            <input type="text" name="txt3">
+        </fieldset>
+    </form>
+
+    <hr>
+    <img src="images/catty01.png" name="cat1">
+    <hr>
+
+    <script>
+        var txt1 = document.form1.txt1;
+        var txt2 = document.form1.txt2;
+        var txt3 = document.form1.txt3;
+
+        var btn1 = document.form1.btn1;
+        var btn2 = document.form1.btn2;
+        var btn3 = document.form1.btn3;
+        var btn4 = document.form1.btn4;
+        var btn5 = document.form1.btn5;
+        var btn6 = document.form1.btn6;
+
+        btn1.onclick = m1;
+        btn2.onclick = m2;
+        btn3.onclick = m3;
+        btn4.onclick = m4;
+        btn5.onclick = m5;
+        btn6.onclick = m6;
+
+        /*
+        타이머, Timer
+
+        1. id setTimeout(할일, 시간)
+        - 1회성 타이머
+
+        2. id setInterval(할일, 시간)
+        - 반복 타이머
+        
+        3. clearTimeout(id)
+
+        */
+
+        var n = 1;
+        var timer;
+
+        function m1() {
+            timer = setTimeout(f1, 100);
+            // setInterval(f1, 1000);
+            console.log(timer);
+
+        }
+        function f1() {
+            alert('따르릉');
+            txt1.value = n;
+            n++;
+            // m1();
+
+            txt1.size++;
+        }
+        function m2() {
+            clearTimeout(timer);
+        }
+        function m3() {
+            timer = setInterval(f3, 100);
+        }
+        function f3() {
+            // alert('따르릉')
+            txt2.value = new Date().toLocaleTimeString();
+            txt2.size++;
+        }
+        function m4() {
+            clearInterval(timer);
+        }
+
+        //1. 시작 버튼 > 1회만 클릭 가능
+        //2. 시작 버튼 > N회 중복 클릭 가능 + N회 종료 버튼 클릭 가능
+
+        timer = 0;
+        var timerList = [];
+
+        function m5() {
+            if (timer == 0) {
+            timer = setInterval(f5, 100);
+            console.log(timer);
+
+                btn5.disabled = true;
+                btn6.disabled = false;
+            }
+            // timer = setInterval(f5, 100);
+            // timerList.push(timer);
+        }
+        function f5() {
+            txt3.value = n;
+            n++;
+        }
+        function m6() {
+            clearInterval(timer);
+            timer = 0;
+
+            btn5.disabled = false;
+            btn6.disabled = true;
+
+            //순차적으로 중지
+            // clearInterval(timerList.pop());
+
+            //일괄적으로 중지
+            // for (var i=0; i<timerList.length; i++) {
+            //     clearInterval(timerList[i]);
+            //}
+        }
+
+
+        document.images['cat1'].onclick = m7;
+
+        n = 1;
+        timer = 0;
+
+        function m7() {
+            if (timer == 0){
+            timer =setInterval(f7, 100);
+            } else {
+                clearInterval(timer);
+                timer = 0;
+            }
+        }
+        function f7() {
+            n++;
+            if (n > 9) n = 1;
+            document.images['cat1'].src = 'images/catty0' + n + '.png';
+        }
+
+
+    </script>
+</body>
+</html>

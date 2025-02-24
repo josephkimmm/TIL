@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .txts {
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- ex31_dom.html -->
+    <h1>DOM</h1>
+
+    <form name="form1">
+        <h2 id="title">Controls</h2>
+        <div>
+            <input type="text" name="txt1" id="txt1" class="txts">
+            <input type="text" name="txt3" id="txt2" class="txts">
+            <input type="text" name="txt1" id="txt3" class="txts">
+            <input type="button" value="버튼1" class="btn1">
+        </div>
+    </form>
+    
+    <script>
+        
+        // <input type="text" name="txt2" id="txt2" class="txts">
+
+        //BOM
+        document.form1.txt1.value = 'BOM';
+
+        //DOM(by)
+        document.getElementById('txt1').value = 'DOM';
+        //찾은 도구가 다른거지 찾은 객체는 동일하다
+
+        //BOM or DOM > 검색 결과 > 동일한 객체
+        console.log(document.form1.txt1 === document.getElementById('txt1'));
+
+        //DOM(class)
+        var txts = document.getElementsByClassName('txts');
+        // console.log('txts');
+
+        for (var i=0; i<txts.length; i++) {
+            txts[i].value = i;
+        }
+
+        //DOM(name) => 잘안씀
+        document.getElementsByName('txt1')[0].value = '홍길동';
+
+        //DOM(tag)
+        var list = document.getElementsByTagName('input');
+        console.log(list.length); //4
+
+        for (var i=0; i<list.length; i++) {
+            list[i].value = i;
+        }
+
+        // document.querySelector('#txt1').value = 'CSS';
+        // document.querySelector('.txts:nth-child(2)').value = 100;
+        document.querySelectorAll('.txts:nth-child(odd)').value = 100;
+
+
+    </script>
+</body>
+</html>

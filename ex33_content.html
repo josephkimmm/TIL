@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        fieldset {
+            border: 1px solid black;
+            width: 200px;
+        }
+        fieldset > label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        #tbl1 {
+            border: 1px solid black;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        #tbl1 td {
+            border: 1px solid gray;
+            width: 50px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- ex33_content.html -->
+    <h1>테이블 생성하기</h1>
+
+    <fieldset>
+        <legend>행X열</legend>
+        <label>행: <select id="selRow"></select></label>
+        <label>열: <select id="selCol"></select></label>
+        <input type="button" value="생성하기" id="btn1">
+    </fieldset>
+
+    <table id="tbl1"></table>
+
+    <script>
+
+        var selRow = document.getElementById('selRow');
+        var selCol = document.getElementById('selCol');
+        var btn1 = document.getElementById('btn1');
+        var tbl1 = document.getElementById('tbl1');
+
+        for (var i=1; i<=10; i++) {
+            selRow.options.add(new Option(i, i));
+            selCol.options.add(new Option(i, i));
+        }
+
+        btn1.onclick = function() {
+            //<tr>, <td> 생성하기
+            var temp ='';//동적 HTML 누적 변수
+            tbl1.innerHTML = '<tr><td></td></tr>';
+            
+            for (var i=0; i<selRow.value; i++){
+                temp += '<tr>';
+
+                    for (var j=0; j<selCol.value; j++) {
+                        temp += '<td>';
+                        temp += (i + ',' + j);
+                        temp += '</td>';
+                    }
+
+                temp += '</tr>';
+            }//for
+
+            tbl1.innerHTML = temp;
+        };
+    </script>
+</body>
+</html>

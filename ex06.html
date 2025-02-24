@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <script>
+        //전역
+        var num1 = 100; //전역 변수
+        console.log(num1);
+
+        function m1() {
+            console.log(num1);
+            var num2 = 200; // 지역 변수. m1을 영역
+            console.log(num2);
+        }
+
+        if (num1 > 0) {
+            var num4 = 400; //지역 변수(O). m1
+        }
+
+        m1();
+        // console.log(num2);
+        if (num1 > 0 ){
+            var num3 = 300;// 지역 변수(X), 전역 변수(O)
+            console.log(num3);
+        }
+
+        num6 = 600;//전역 변수
+        console.log(num6);
+
+        function m2() {
+            var num5 = 500; //지역변수(m2)
+            num7 = 700 //전역변수
+        }
+        m2();
+
+        console.log(num7);
+
+    </script>
+</body>
+</html>

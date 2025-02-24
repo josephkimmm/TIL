@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <!-- ex18_location.html -->
+    <h1>location 객체</h1>
+
+    <form name="form1">
+        <input type="text" name="txt1">
+        <hr>
+        <input type="button" value="버튼1" name="btn1">
+    </form>
+    <script>
+        var txt1 = window.document.form1.txt1;
+        var btn1 = window.document.form1.btn1;
+
+        btn1.onclick = m1;
+        function m1() {
+            // alert(window.location.href);
+            // window.location.href = 'ex16_window.html';
+            // window.location.href = 'https://naver.com'
+
+            // window.location.reload(); //F5 새로고침
+        // window.location.assign('ex16_window.html'); //페이지 이동
+
+        console.log(location.host);
+        console.log(location.port);
+        console.log(location.protocol);
+        console.log(location.pathname);
+        }
+
+        //커뮤니티
+        //1. 자유게시판[F]
+        //2. 알뜰게시판[A]
+        //3. 질문게시판[Q]
+        
+        //(지역) 이벤트
+        //- 태그.onclick = 함수
+
+        //전역 이벤트 - window한테 거는 event
+        //- 어떤 상황에서든 > 항상 발생하는 이벤트
+        window.onkeydown = m2;
+
+        function m2() {
+            alert(event.keyCode); //70      65      81
+            alert(event.code);    //KeyF    KeyA    KeyQ
+
+            if (event.keyCode == 70) {
+                location.href = 'https://naver.com';
+            } else if (event.code == 'KeyA') {
+                location.href = 'https://google.com';
+            } else if (event.code == 'KeyQ') {
+                location.href = 'https:daum.net'
+            }
+        }
+
+    </script>
+</body>
+</html>

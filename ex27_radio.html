@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <!-- ex27_radio.html -->
+
+    <h1>라디오 버튼</h1>
+    <label><input type="radio" name="rb" value="white" checked> 흰색</label>
+    <label><input type="radio" name="rb" value="black"> 검정색</label>
+    <label><input type="radio" name="rb" value="yellow"> 노란색</label>
+    <label><input type="radio" name="rb" value="red"> 빨간색</label>
+    <label><input type="radio" name="rb" value="blue"> 파란색</label>
+
+    <input type="button" value="빨간색" data-color="red">
+
+    <script>
+
+        for (var i=0; i<document.all.rb.length; i++){
+            document.all.rb[i].onchange = m1;
+        }
+
+        function m1() {
+            // alert(event.target.value);
+            document.body.bgColor = event.target.value;
+
+            if (event.target.value == 'black'
+                || event.target.value == 'blue'
+                || event.target.value == 'red') {
+                document.body.text = 'white';
+            } else {
+                document.body.text = 'black';
+            }
+        }
+
+
+    </script>
+</body>
+</html>

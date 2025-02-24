@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <!-- ex07_casting.html -->
+    <script>
+        var n1 = 3.14;
+        console.log(parseInt(n1));
+
+        var n2 = '200'; //'200' > 200
+        console.log(n2, typeof n2); //String
+        console.log(parseInt(n2),  typeof parseInt(n2)); //200 string
+
+        var n3 = '홍길동';
+        console.log(parseInt(n3)); //NaN
+
+        var n4 = '100점';
+        console.log(parseInt(n4)); //'100점' > 100
+        //문자열은 버리고 숫자만 형변환
+        n4 = '100점이 아니라 90점입니다.';
+        console.log(parseInt(n4)); //100
+        //처음에 나오는 숫자만 돌려주고 뒤에나오는 숫자는 버림
+        n4 = '점수100'
+        console.log(parseInt(n4));//NaN
+        //첫글자부터 숫자로 시작해야하고 문자가 시작되기 전까지만 돌려줌
+
+        //CSS 조작
+        var width = '200px';
+        console.log(parseInt(width) + 100);//300
+        console.log(width + 100);//200px100
+
+        var size = '1.5rem'
+        console.log(parseInt(size));//1
+        console.log(parseFloat(size));//1.5
+
+        var age = '20'; //키보드 입력
+        
+        if (isNaN(age)) {
+            console.log('나이가 올바르지 않습니다.');
+        } else {
+            console.log('올바른 나이입니다.')
+        }
+
+    </script>
+</body>
+</html>

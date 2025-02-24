@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <!-- ex11_bom.html -->
+    <h1>BOM</h1>
+    <p>자바스크립트가 블라블라</p>
+    <form name="form1">
+        <input type="type" name="txt1">
+    </form>
+    <script>
+        // window > 윈도우 객체 > 현재 HTML문서가 실행되고 있는 브라우저 창을 참조하는 객체체
+        //document > 문서 객체 > 현재 페이지
+        //name: BOM에서 식별자로 쓰임
+        // window.close();
+
+        window.document.form1.txt1.value = '홍길동';
+    </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <!-- ex08_string.html -->
+
+    <script>
+        // 문자열 함수
+        var txt = "Hello World!"
+
+        //문자열 길이
+        console.log(txt.length); //Java field = JS property | 객체의 성질을 보유한 멤버변수
+
+        //검색
+        //- indexOf()
+        //- lastIndexOf()
+        console.log(txt.indexOf('!'));
+        console.log(txt.indexOf('!', 6));
+        console.log(txt.lastIndexOf('!'));
+        console.log(txt.lastIndexOf('!', 10));
+
+        //대소문 변환
+        console.log(txt.toUpperCase());
+        console.log(txt.toLowerCase());
+
+        //추출
+        console.log(txt.substring(2,4));//Java 2번째 위치부터 4번째 전까지 가져와라
+        console.log(txt.substring(2));
+        console.log(txt.substr(2, 4)); //SQL 2번째 위치부터 4글자를 가져와라
+        console.log(txt.charAt(2)); // 문자 추출 > 문자 코드값?
+        console.log(txt.charCodeAt(2))// 문자 코드 값 추출(108)
+
+        //치환
+        txt = 'Hello~ Hong~ Bye~ Hong~';
+        console.log(txt.replace('Hong', 'Lee'));
+        //Hello~ Lee~ Bye~ Hong~
+        //처음만나는 요소만 치환한다. 즉 반복을 안함. 1회성.
+
+        //모두 치환하려면 정규 표현식 필요
+        console.log(txt.replace(/Hong/g, 'Lee'));
+        //Hello~ Lee~ Bye~ Lee~
+
+        //공백 제거
+        txt = '     하나    둘    셋';
+        console.log(txt.trim());
+        console.log(txt.trimLeft()); //ltrim()
+        console.log(txt.trimRight()); //rtrim()
+        console.log(txt.trimStart());// ECMA2019 > 표준화
+        console.log(txt.trimEnd());
+
+        //분할
+        txt = '홍길동,강아지,고양이,병아리,멍멍이';
+        console.log(txt.split(','));
+
+        //패턴 검색
+        txt = '홍길동';
+        console.log(txt.startsWith('홍'));
+        console.log(txt.endsWith('홍'));
+
+        txt = '1';
+        console.log(txt.padStart(3, '0'));// lpad
+        console.log(txt.padEnd(3, '0'));// rpad
+        
+        txt = '안녕';
+        console.log(txt.repeat(3));
+
+    </script>
+</body>
+</html>

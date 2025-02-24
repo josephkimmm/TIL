@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #tbl1 {
+            border: 1ox solid gray;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+        }
+        #tbl1 th, #tbl1 td {
+            border: 1px solid gray;
+            padding: 5px 10px;
+        }
+        #tbl1 th {
+            background-color: #eee;
+        }
+        input {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- ex25_form.html -->
+    <!-- 유효성 검사 -->
+    <h1>회원 가입</h1>
+
+    <form name="form1" action="ex25_ok.jsp">
+        <table id="tbl1">
+            <tr>
+                <th>이름</th>
+                <td><input type="text" name="txtName" required></td>
+            </tr>
+            <tr>
+                <th>나이</th>
+                <td><input type="number" min="10" max="60" name="txtAge" required></td>
+            </tr>
+            <tr>
+                <th>아이디</th>
+                <td><input type="text" name="txtID"></td>
+            </tr>
+            <tr>
+                <th>암호</th>
+                <td><input type="password" name="txtPwd"></td>
+            </tr>
+            <tr>
+                <th>암호확인</th>
+                <td><input type="password" name="txtPwdc"></td>
+            </tr>
+        </table>
+        <div>
+            <input type="submit" value="가입하기" name="btnRegister1">
+            <input type="button" value="가입하기" name="btnRegister2">
+        </div>
+    </form>
+    <script>
+
+        var form1 = document.form1;
+        var txtName = form1.txtName;
+        var txtAge = form1.txtAge;
+        var txtID = form1.txtID;
+        var txtPwd = form1.txtPwd;
+        var txtPwdc = form1.txtPwdc;
+        var btnRegister1 = form1.btnRegister1;
+        var btnRegister2 = form1.btnRegister2;
+
+        btnRegister1.onclick = m1;
+        btnRegister2.onclick = m2;
+
+        function m1() {
+            //유효성 검사 > 잘못된 값을 찾기!!
+
+            // if (txtName.value.length == 0) {
+                
+            //     alert('이름 필수!!');
+            //     return false; //전송이 일어나는걸 막아줌
+            //     // event.preventDefault(); //전송이 일어나는걸 막아줌
+            // }
+
+            //이름
+            //- 필수값
+            //- 2~5자 이내
+            // - 한글만 입력
+            if (txtName.value.trim() == '') {
+                alert('이름 필수!!');
+                txtName.focus();
+                return false;
+            }
+
+            if (txtName.value.length < 2 || txtName.value.length > 5){
+                alert('2~5자 이내!');
+                txtName.value = '';
+                txtName.focus();
+                txtName.select();
+                return false;
+            } 
+
+            for (var i=0; i<txtName.value.length; i++) {
+                var c =txtName.value.charAt(i);
+                if (c < '가' || c > '힣'){
+                    alert('한글만');
+                    txtName.select();
+                    return false;
+                }
+            }
+
+            //나이
+            //- 필수값
+            //- 숫자만
+            //- 범위(10세 이상 ~ 60세 미만)
+            if (txtAge.value.trim() == '') {
+                alert('나이 입력!!');
+                txtAge.focus();
+                return false;
+            }
+
+            if (isNaN(txtAge.value)) {
+                alert('숫자만');
+                txtAge.focus();
+                return false;
+            }
+
+            if (txtage.value < 10 || txtAge.value >= 60) {
+                alert('10세 이상 60세 미만');
+                txtAge.focus();
+                return false;
+            }
+
+            //아이디
+            //- 필수값
+            //- 4~12자 이내
+            //- 영어 + 숫자
+            //- 숫자로는 시작 불가능
+            if (txtID.value.trim()=='') {
+                alert('아이디 필수!');
+                txtID.focus();
+                return false;
+            }
+            
+            if (txtID.value.length < 4 || txtId.value.length > 12) {
+                alert('4~12자 이내');
+                txtID.focus();
+                return false;
+            }
+
+            for (var i=0; i<txtID.value.length; i++) {
+                var c= txtID.value.charAt(i);
+                if ((c < 'A' || c > 'Z') &&
+                    (c < 'a' || c > 'z') &&
+                    (c < '0' || c > '9') &&
+                    c != '_'){
+                    alert('영어 + 숫자 + _');
+                    txtID.focus();
+                    return false;
+                }
+            }
+
+            //암호
+            if (txtPwd.value != txtPwdc.value) {
+                alert('암호가 올바르지 않습니다.');
+                txtPwd.value = '';
+                txtPwdc.value = '';
+                txtPwd.focus();
+                return false;
+            }
+        }
+        function m2() {
+            if (txtName.value.length == 0) {
+                alert('이름 필수!!');
+                return; 
+            }
+
+            //에뮬레이터 함수
+            form1.submit(); //submig 버튼 클릭한 것과 같다.
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <!-- ex30_function.html -->
+    <input type="button" value="버튼1" name="btn1">
+    <input type="button" value="버튼2" name="btn2">
+    
+    <script>
+        /* 
+            JavaScript Function
+            - "함수는 1급 객체이다."
+            - 함수를 객체처럼 취급한다. > 값으로(처럼) 사용할 수 있다.
+
+            1. 함수를 변수나 데이터 구조에 담을 수 있다.(저장)
+            2. 함수를 매개변수로 전달할 수 있다.
+            3. 함수를 반환값으로 사용할 수 있다.
+
+            *** 값(변수,상수)이 들어가는 모든 위에 함수가 들어갈 수 있다.
+
+            JavaScript에서 함수를 선언하는 방법
+            1. 함수 선언문 == 실명 함수
+            2. 함수 표현식(리터럴) == 익명 함수
+        
+        */
+
+        //1. 함수 선언문
+        // function m1() {
+        //     alert('m1');
+        // }
+        // m1();
+
+        //2. 함수 표현식(리터럴)
+        // (function () {
+        //     alert('익명함수');
+        // })(); //즉시 호출
+
+        // var f2 = function () {
+        //     alert('익명함수');
+        // };
+        // f2();
+        // console.log(typeof f2); //function
+
+        // function m3() {
+        //     alert('m3');
+        // }
+
+        // var f3 = m3;
+        // f3();
+
+        document.all.btn1.onclick = m4;
+
+        function m4() {
+            alert('버튼1' + event.target);
+        }
+
+        //m4();
+
+        document.all.btn2.onclick = function () {
+            alert('버튼2');
+        };
+        
+
+
+
+        function f5() {
+            alert('f5');
+        }
+        function f6() {
+            alert('f6');
+        }
+        function f7(fn) {
+            fn();
+        }
+        //f7(f6);
+
+        //setTimeout(m8, 1000);
+        // setTimeout(function() {
+        //     alert(111);
+        // }, 1000);
+
+        function f9() {
+            alert('f9');
+        }
+        function f10() {
+            return f9;
+        }
+        f10()();
+        
+
+    </script>
+
+</body>
+</html>

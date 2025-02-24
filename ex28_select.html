@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <!-- ex28_select.html -->
+    <h1>셀렉트 박스</h1>
+
+    <select name="sel1">
+        <option value="f1">사과</option>
+        <option value="f2">바나나</option>
+        <option value="f3">귤</option>
+        <option value="f4">파인애플</option>
+        <option value="f5">망고</option>
+    </select>
+    <hr>
+    <input type="button" value="버튼1" name="btn1">
+    <input type="button" value="버튼2" name="btn2">
+    <input type="button" value="버튼3" name="btn3">
+    <input type="button" value="버튼4" name="btn4">
+    <input type="button" value="버튼5" name="btn5">
+
+    <hr>
+
+    태어난 년도: 
+    <select name="selYear">
+        <!-- <option value="">1950</option>
+        <option value="">2025</option> -->
+    </select>
+
+    <script>
+
+        document.all.btn1.onclick = m1;
+        document.all.btn2.onclick = m2;
+        document.all.btn3.onclick = m3;
+        document.all.btn4.onclick = m4;
+        document.all.btn5.onclick = m5;
+
+        var sel1 = document.all.sel1;
+
+        function m1() {
+            //사용자가 선택한 과일?
+            //- 사용자가 입력하는 모든 입력 컨트롤 >  value
+            // alert(sel1.value); //option tag의 value
+            sel1.value = 'f3';
+        }
+        function m2() {
+            //선택한 <option>의 index(0부터 시작)
+            // alert(sel1.selectedIndex);
+            sel1.selectedIndex = 4;
+            
+        }
+        function m3() {
+
+            //동일한 <option> 추가 방지
+            for (var i=0; i<sel1.options.length; i++) {
+                // alert(sel1.options[i].text);
+                if (sel1.options[i].text == '배'
+                    || sel1.options[i].value == 'f6'){
+                    return;    
+                }
+            }
+
+            //동적으로 태그를 추가하기
+            //- BOM > 부실
+            //- DOM > 풍부
+
+            //<option>을 추가하기
+            //- <option value="f6">배</option>
+
+            var op = new Option(); //메모리에 <option></option> 생성
+            op.value = "f6";       // <option value="f6"></option> 생성
+            op.text = "배";        // <option value="f6">배</option>
+            sel1.options.add(op); //<select> + <option>
+            //클릭하면 계속 배가 추가됨 > 중복 추가 방지 필요
+            
+
+        }
+        function m4() {
+            
+            //동적으로 <option> 삭제하기
+            // sel1.options.remove(2); //귤 > shift 발생
+
+            //사용자가 선택한 항목을 삭제하기
+            // sel1.options.remove(사용자가 선택한 항목의 인덱스);
+            sel1.options.remove(sel1.selectedIndex); //버튼2
+
+        }
+        function m5() {
+            
+            //단일 선택
+            // alert(sel1.value);
+
+            //다중 선택
+            // alert(sel1.value);
+            // var result = '';
+
+            // for (var i=0; i<sel1.options.length; i++) {
+            //     //alert(sel1.options[i].selected);
+            //     if (sel1.options[i].selected) {
+            //         result += sel1.options[i].text + ',';
+            //     }
+            // }
+
+            // alert(result);
+
+            sel1.options[0].selected = true;
+            sel1.options[1].selected = true;
+
+        }
+
+        for (var i=1950; i<=2025; i++) {
+            var op = new Option(i, i);
+            document.all.selYear.options.add(op);
+        }
+
+        document.all.selYear.selectedIndex = 55;
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <!-- ex19_history.html -->
+
+    <h1>history 객체</h1>
+
+    <form name="form1">
+        <button type="button" name="btn1">뒤로 가기</button>
+        <button type="button" name="btn2">앞으로 가기</button>
+        <button type="button" name="btn3">뒤로 가기(2단계)</button>
+    </form>
+
+    <script>
+        var btn1 = document.form1.btn1;
+        var btn2 = document.form1.btn2;
+        var btn3 = document.form1.btn3;
+
+        // window.open()
+
+        btn1.onclick = m1;
+        btn2.onclick = m2;
+        btn3.onclick = m3;
+
+        function m1 {
+            window.history.back();
+        }
+        function m2 {
+            history.forward();
+        }
+        function m3 {
+            history.go(-2);h
+        }
+    </script>
+</body>
+</html>

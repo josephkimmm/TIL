@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            color: cornflowerblue;
+        }
+        ul > li:nth-child(1){
+            display: none; /*렌더링 안함*/
+        }
+        ul > li:nth-child(2){
+            visibility: hidden;
+            /*렌더링은 하는데 화면에 안보임*/
+        }
+    </style>
+</head>
+<body>
+    <!-- browser.html -->
+    <h1>제목입니다.</h1>
+    <ul>
+        <li>항목입니다.</li>
+        <li>항목입니다.</li>
+        <li>항목입니다.</li>      
+    </ul>
+    <hr>
+    <form name=""form1>
+        <input type="text" name="txt1">
+    </form>
+</body>
+</html>

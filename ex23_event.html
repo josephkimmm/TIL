@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .item {
+            border: 1px solid #CCC;
+            background-color: #EEE;
+            padding: 10px;
+            width: 300px;
+            text-align: center;
+            margin: 15px;
+        }
+        .item > input {
+            border: 1px solid #CCC;
+            background-color: #FFF;
+            width: 90px;
+            height: 50px;
+            margin: 3px;
+            outline: none;
+        }
+        .item > input:hover {
+            box-shadow: 0 0 3px gray;
+        }
+    </style>
+</head>
+<body>
+    <!-- ex23_event.html -->
+
+    <form name="form1">
+
+        <!--      
+        <div class="item">
+            <input type="button" name="btnRed" value="빨강">
+            <input type="button" name="btnYellow" value="노랑">
+            <input type="button" name="btnBlue" value="파랑">
+        </div>
+        -->
+
+        
+
+        <!-- 정적 이벤트: HTML 속성 > 이벤트 핸들러 사용 -->
+        <div class="item">
+            <input type="button" name="btnRed" value="빨강" onclick="m1();">
+            <input type="button" name="btnYellow" value="노랑" onclick="m2();">
+            <input type="button" name="btnBlue" value="파랑" onclick="m3();">
+        </div>
+
+        <!-- 동적 이벤트 -->
+        <div class="item">
+            <input type="button" name="btnRed2" value="빨강">
+            <input type="button" name="btnYellow2" value="노랑">
+            <input type="button" name="btnBlue2" value="파랑">
+        </div>
+
+        <div class="item">
+            <input type="button" name="btnRed3" value="빨강" onclick="m7('tomato');">
+            <input type="button" name="btnYellow3" value="노랑" onclick="m7('gold');">
+            <input type="button" name="btnBlue3" value="파랑" onclick="m7('cornflowerblue');">
+        </div>
+
+        <div class="item">
+            <input type="button" name="btnRed4" value="빨강" onclick="m8(this);">
+            <input type="button" name="btnYellow4" value="노랑" onclick="m8(this);">
+            <input type="button" name="btnBlue4" value="파랑" onclick="m8(this);">
+        </div>
+        <!-- 잘 기억! -->
+        <!-- 사용자 정의 데이터  data-XXX -->
+        <div class="item">
+            <input type="button" name="btnRed5" value="빨강" onclick="m9(this);" data-color="tomato">
+            <input type="button" name="btnYellow5" value="노랑" onclick="m9(this);" data-color="gold">
+            <input type="button" name="btnBlue5" value="파랑" onclick="m9(this);" data-color="cornflowerblue">
+        </div>
+
+        <div class="item">
+            <input type="button" name="btnRed6" value="빨강" onclick="m10();" data-color="tomato">
+            <input type="button" name="btnYellow6" value="노랑" onclick="m10();" data-color="gold">
+            <input type="button" name="btnBlue6" value="파랑" onclick="m10();" data-color="cornflowerblue">
+        </div>
+
+        <div class="item">
+            <input type="button" name="btnRed7" value="빨강" data-color="tomato">
+            <input type="button" name="btnYellow7" value="노랑" data-color="gold">
+            <input type="button" name="btnBlue7" value="파랑" data-color="cornflowerblue">
+        </div>
+
+        <div class="item">
+            <input type="button" name="btn8" value="빨강" data-color="tomato">
+            <input type="button" name="btn8" value="노랑" data-color="gold">
+            <input type="button" name="btn8" value="파랑" data-color="cornflowerblue">
+        </div>
+
+        <div class="item">
+            <input type="button" name="btnRed9" value="빨강" data-color="tomato">
+            <input type="button" name="btnYellow9" value="노랑" data-color="gold">
+            <input type="button" name="btnBlue9" value="파랑" data-color="cornflowerblue">
+        </div>
+    </form>
+
+    <script>
+
+        function m1() {
+            document.body.bgColor = 'tomato';
+        }
+        function m2() {
+            document.body.bgColor = 'gold';
+        }
+        function m3() {
+            document.body.bgColor = 'cornflowerblue';
+        }
+
+        document.form1.btnRed2.onclick = m4;
+        document.form1.btnYellow2.onclick = m5;
+        document.form1.btnBlue2.onclick = m6;
+
+        function m4() {
+            document.body.bgColor = 'tomato';
+        }
+        function m5() {
+            document.body.bgColor = 'gold';
+        }
+        function m6() {
+            document.body.bgColor = 'cornflowerblue';
+        }
+
+        function m7(color) {
+            document.body.bgColor = color;
+        }
+
+        function m8(obj) {
+            //객체 출력
+            // alert(obj);// .toString() 호출 > 문자열 출력 > 단순 출력
+            // console.log(obj);//객체 자체를 있는 그대로 출력  > 상세 출력
+            // console.log(obj);
+
+            //obj > 이벤트 호출 시 전달한 this == 이벤트 발생 객체(태그)
+            //    > <input onclick="m8();">
+
+            //함수 입장: 3개의 버튼 중 누가 나를 호출했는지?
+            // console.log(obj.name);
+
+            // if (obj.name == 'btnRed4') {
+            //     document.body.bgColor = 'tomato';
+            // } else if (obj.name == 'btnYellow4') {
+            //     document.body.bgColor = 'gold';
+            // } else if (obj.name == 'btnBlue4') {
+            //     document.body.bgColor = 'cornflowerblue'
+            // }
+
+            //btnRed4
+            var temp = obj.name.substr(3); //Red4
+            temp = temp.substr(0, temp.length - 1);
+            console.log(temp);
+            document.body.bgColor = temp;
+        }
+
+        function m9(obj) {
+            //<input data-color="tomato">
+            // alert(obj.dataColor);
+            // alert(obj.dataset['color']);
+            document.body.bgColor = obj.dataset['color'];
+        }
+
+        function m10() {
+            //어떤 버튼을 클릭?
+            //이벤트를 발생시킨 객체 > m9의 obj와 동일한 객체
+            //console.log(this); //윈도우 객체
+            // console.log(event.srcElement);//비표준(MS)
+            //console.log(event.target);//표준
+
+            document.body.bgColor = event.target.dataset['color'];
+        }
+
+        document.form1.btnRed7.onclick = m11;
+        document.form1.btnYellow7.onclick = m11;
+        document.form1.btnBlue7.onclick = m11;
+
+        function m11() {
+            document.body.bgColor = event.target.dataset['color'];
+        }
+
+        console.log(document.form1.btn8);
+
+        for (var i=0; i<document.form1.btn8.length; i++) {
+            document.form1.btn8[i].onclick = m12;
+        }
+
+        function m12() {
+            document.body.bgColor = event.target.dataset['color'];
+        }
+
+        // document.form1.btnRed9.onmouseover = m13;
+        // document.form1.btnRed9.onmouseout = m14;
+
+        // function m13() {
+        //     document.body.bgColor = event.target.dataset['color'];
+        // }
+        // function m14() {
+        //     document.body.bgColor = 'white';
+        // }
+
+        document.form1.btnRed9.onmouseover = m15;
+        document.form1.btnRed9.onmouseout = m15;
+        document.form1.btnYellow9.onmouseover = m15;
+        document.form1.btnYellow9.onmouseout = m15;
+        document.form1.btnBlue9.onmouseover = m15;
+        document.form1.btnBlue9.onmouseout = m15;
+
+        function m15() {
+            //누가?
+            //console.log(event.target);
+
+            //언제? 이벤트 종류
+            // console.log(event.type);
+
+            if (event.type == 'mouseover') {
+                document.body.bgColor = event.target.dataset['color'];
+            } else if (event.type =='mouseout') {
+                document.body.bgColor = 'white';
+            }
+        }
+
+
+    </script>
+
+</body>
+</html>

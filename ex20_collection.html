@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <!-- ex20_collection.html -->
+     <h1>이미지</h1>
+    <img src="images/catty01.png">
+    <img src="images/catty02.png">
+    <img src="images/catty03.png">
+    <img src="images/catty04.png">
+    <img src="images/catty05.png">
+
+    <h1>링크</h1>
+    <a href="https://naver.com">네이버</a>
+    <a href="https://google.com">구글</a>
+    <a href="https:/daum.net">다음</a>
+
+    <h1>앵커</h1>
+    <a id="a1" name="a1">앵커1</a>
+    <a id="a2" name="a2">앵커2</a>
+
+    <h1>폼</h1>
+    <form>
+        <input type="text">
+        <input type="text">
+        <input type="text">
+        <a href="">링크</a>
+        <img src="images/catty06.png">
+    </form>
+
+    <form>
+        <input type="radio">
+        <input type="checkbox">
+    </form>
+
+    <script>
+        // console.log(document.images.length);
+        // console.log(document.images[0].src);
+
+        for (var i=0; i<document.images.length; i++) {
+            console.log(document.images[i].src);
+        }
+        console.clear();
+
+        console.log(document.links);
+        console.log(document.anchors);
+        console.log(document.forms);
+        console.log(document.forms[0].elements);
+        console.log(document.forms[0].select.options);
+        console.log(document.all);
+        
+    </script>
+</body>
+</html>

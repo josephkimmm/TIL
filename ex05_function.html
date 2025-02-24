@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <!-- ex05_function.html -->
+    <script>//전역 - Global Area
+
+
+        var num = 10;
+        console.log(typeof num);
+
+        function m1() {
+            console.log('m1');
+        }
+
+        m1();
+
+        function m2(name) {
+            // console.log('name: ' + name);
+            // console.log('name:', name);
+            
+            console.log(arguments[0]);
+            console.log(arguments[1]);
+            console.log(arguments[2]);
+        }
+
+        m2('홍길동');
+        m2('강아지');
+        m2();
+        m2('고양이', '병아리', '송아지');
+        console.clear();
+
+        function m3(name, age) {
+            console.log(name, age);
+        }
+
+        m3('홍길동', 20);
+
+        function m4() {
+            return 10;
+        }
+        console.log(m4());
+        console.clear();
+
+        console.log(undefined == null); //true
+
+        var num1;
+        console.log(num1);//undefined
+
+        var num2 = null;
+        console.log(num2); //null
+
+        console.log(undefined == null);//true
+        console.log(undefined === null);//false
+        console.log(typeof undefined); //undefined
+        console.log(typeof null); //object(X) -> null(O)
+
+        console.log(10 == 10); //true
+        console.log('10' == '10'); //true
+        console.log(10 == '10') //true
+        console.log(10 === '10') //false
+
+
+    </script>
+</body>
+</html>
