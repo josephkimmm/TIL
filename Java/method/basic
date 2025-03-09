@@ -24,6 +24,7 @@ int call(String str, int age)
 자바 컴파일러가 반환 타입이 없는 경우에는 return을 마지막줄에 넣어준다. 참고로 return을 만나면 해당 메서드는 종료된다.
 
 3. 자바는 항상 변수의 값을 복사해서 대입한다!!===> 대원칙
+
 ```java
 public class MethodValue {
 
@@ -40,7 +41,8 @@ public class MethodValue {
     System.out.println("3. changeNumebr 호출 후, num2: ", num2);
   }
 
-}```
+}
+```
 
 ```java
 //실행결과
