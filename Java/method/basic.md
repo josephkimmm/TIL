@@ -7,12 +7,10 @@
 
 1.  메서드 호출과 용어 정리
 
-<pre>
-<code>java
+```java
 call("hello", 20)
 int call(String str, int age)
-</code>
-</pre>
+```
 
 인수(Argument) =  인 + 수
 호출하는 쪽에서 "hello", 20 처럼 넘기는 값을 인수 또는 인자 라고 한다.
