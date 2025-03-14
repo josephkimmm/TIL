@@ -1,7 +1,8 @@
 ## WEB-INF와 404 Error와의 관계
 최근 Servlet/JSP 수업 내용을 복습하기위해 노트북으로 프로젝트를 실행하면 계속 브라우저 404 Error로 고생을 있었다.
 드디어 에러를 해결하게되어 깨달은 내용을 적어본다.
-<img width="793" alt="Image" src="https://github.com/user-attachments/assets/21d339a8-2f2c-48ac-b1f9-9baaf50ec0a2" />
+<img width="807" alt="Image" src="https://github.com/user-attachments/assets/48a2d86a-c531-4fc4-a7bb-a443bf1c79e6" />
+<img width="277" alt="Image" src="https://github.com/user-attachments/assets/af7468f2-b68d-4179-8feb-b62425de7de8" />
 
 1. web-app폴더에 파일이 있을 경우 비즈니스 로직(Controller)없이도 tomcat을 이용하여 브라우저 호출이 바로 되었고 뷰를 확인할 수 있다.
 2. web-app > WEB-INF에 저장된 파일의 경우에는 직접적으로 접근이 불가한 경로로 보안 또는 유저에게 공개가 불필요한 정보를 저장하며 Controller를 통해서만
