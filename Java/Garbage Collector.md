@@ -74,9 +74,7 @@ JVM은 애플리케이션 특성에 맞게 다양한 GC 알고리즘을 제공�
 ---
 
 ## 🔗 참고 자료
-
-- [Oracle Docs - GC Tuning Guide](https://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/)
-- [Baeldung - Java Garbage Collection](https://www.baeldung.com/java-garbage-collection)
+- [Java Garbage Collection](https://asfirstalways.tistory.com/159)
 - [네이버 D2 블로그 - GC 이야기](https://d2.naver.com/helloworld/1329)
-- [해피한 개발자 블로그](https://happyer16.tistory.com/entry/JAVA-%EC%9E%90%EB%B0%94-Garbage-Collection-%EC%9E%90%EB%B0%94%EC%9D%98-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EC%B2%98%EB%A6%AC-%EB%B0%A9%EC%8B%9D)
+- [Inpa Dev](https://inpa.tistory.com/entry/JAVA-%E2%98%95-%EA%B0%80%EB%B9%84%EC%A7%80-%EC%BB%AC%EB%A0%89%EC%85%98GC-%EB%8F%99%EC%9E%91-%EC%9B%90%EB%A6%AC-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%F0%9F%92%AF-%EC%B4%9D%EC%A0%95%EB%A6%AC)
 
